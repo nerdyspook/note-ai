@@ -48,7 +48,7 @@ export default async function NotebookPage({ params: { noteId } }: Props) {
         </div>
 
         <div className="border border-stone-200 shadow-xl rounded-lg px-8 md:px-16 py-8 w-full">
-          <TipTapEditor />
+          <TipTapEditor note={note} />
         </div>
       </div>
     </div>
