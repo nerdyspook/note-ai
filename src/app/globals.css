@@ -78,3 +78,14 @@
 .dashboard-bg {
   background-image: url("https://tailwindui.com/img/beams-home@95.jpg");
 }
+
+.tiptap.ProseMirror {
+  outline: none;
+}
+
+.is-active {
+  background-color: #dadada88;
+  border-radius: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
