@@ -1,3 +1,4 @@
+import DeleteButton from "@/components/DeleteButton";
 import TipTapEditor from "@/components/TipTapEditor";
 import { Button } from "@/components/ui/button";
 import { clerk } from "@/lib/clerk-server";
@@ -44,7 +45,9 @@ export default async function NotebookPage({ params: { noteId } }: Props) {
           </p>
           <span className="inline-block mx-1">/</span>
           <p className="text-stone-500 font-semibold">{note.name}</p>
-          <div className="ml-auto">Delete</div>
+          <div className="ml-auto">
+            <DeleteButton noteId={note.id} />
+          </div>
         </div>
 
         <div className="border border-stone-200 shadow-xl rounded-lg px-8 md:px-16 py-8 w-full">

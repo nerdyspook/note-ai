@@ -42,7 +42,7 @@ export default async function DashboardPage({}: Props) {
         <Separator className="my-8" />
 
         {notes.length === 0 && (
-          <div className="text-center">
+          <div className="text-center mb-8">
             <h2 className="text-xl font-semibold text-slate-500">
               You have no notes yet
             </h2>
