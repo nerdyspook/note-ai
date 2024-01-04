@@ -40,7 +40,7 @@ export default function TipTapEditor({ note }: Props) {
       return {
         "Shift-a": () => {
           const prompt = this.editor.getText().split(" ").slice(-30).join(" ");
-          complete(" " + prompt);
+          complete("  " + prompt);
           return true;
         },
       };

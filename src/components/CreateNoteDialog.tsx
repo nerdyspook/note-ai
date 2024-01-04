@@ -21,6 +21,14 @@ export default function CreateNoteDialog({}: Props) {
   const router = useRouter();
   const [input, setInput] = useState("");
 
+  const uploadToFirebase = useMutation({
+    mutationFn: async (noteId: string) => {
+      const response = await axios.post("/api/uploadToFirebase", { noteId });
+
+      return response.data;
+    },
+  });
+
   const createNotebook = useMutation({
     mutationFn: async () => {
       const response = await axios.post("/api/createNoteBook", {
@@ -40,7 +48,8 @@ export default function CreateNoteDialog({}: Props) {
 
     createNotebook.mutate(undefined, {
       onSuccess: ({ note_id }) => {
-        console.log("Note created", { note_id });
+        // hit another endpoint to upload the temp dalle url
+        uploadToFirebase.mutate(note_id);
         router.push(`/notebook/${note_id}`);
       },
       onError: (error) => {
@@ -81,7 +90,7 @@ export default function CreateNoteDialog({}: Props) {
             <Button className="bg-cyan-900" disabled={createNotebook.isPending}>
               {createNotebook.isPending && (
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              )}{" "}
+              )}
               Create
             </Button>
           </div>
